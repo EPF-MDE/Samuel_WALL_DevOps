@@ -21,4 +21,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and test with Maven
-        run:  mvn clean verify --file simple-api-student-main/pom.xml
+        run:  mvn clean verify --file Multistage_build/simple-api-student-main/pom.xml
