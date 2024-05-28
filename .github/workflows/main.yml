@@ -1,4 +1,4 @@
-name: CI devops 2024
+name: CI/CD Pipeline
 
 on:
   push:
@@ -9,7 +9,6 @@ on:
 jobs:
   test-backend:
     runs-on: ubuntu-22.04
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2.5.0
@@ -21,16 +20,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and test with Maven
-        run:  mvn clean verify --file Multistage_build/simple-api-student-main/pom.xml
-
-name: CI/CD Pipeline
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
+        run: mvn clean verify --file Multistage_build/simple-api-student-main/pom.xml
 
   build-and-push-docker-image:
     needs: test-backend
@@ -68,3 +58,4 @@ on:
           context: ./httpd
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-httpd:latest
           push: ${{ github.ref == 'refs/heads/main' }}
+
