@@ -73,5 +73,5 @@ jobs:
 
       - name: Deploy with Ansible
         run: |
-          ansible-playbook -i inventories/setup.yml playbook_deploy.yml
+          ansible-playbook -i inventories/setup.yml my-project\ansible\playbook.yml
   
