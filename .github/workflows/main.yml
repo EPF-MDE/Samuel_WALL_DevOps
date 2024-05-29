@@ -20,7 +20,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and test with Maven
-        run: mvn clean verify --file Multistage_build/simple-api-student-main/pom.xml
+        #run: mvn clean verify --file Multistage_build/simple-api-student-main/pom.xml
         run : mvn -B verify sonar:sonar -Dsonar.projectKey=SamCloneDocker_TP2 -Dsonar.organization=SamCloneDocker -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file Multistage_build/simple-api-student-main/pom.xml
 
 
