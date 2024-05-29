@@ -20,9 +20,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and test with Maven
-        #run: mvn clean verify --file Multistage_build/simple-api-student-main/pom.xml
-        run : mvn -B verify sonar:sonar -Dsonar.projectKey=samclonedocker_tp2 -Dsonar.organization=samclonedocker -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file Multistage_build/simple-api-student-main/pom.xml
-
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=samclonedocker_tp2 -Dsonar.organization=samclonedocker -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file Multistage_build/simple-api-student-main/pom.xml
 
   build-and-push-docker-image:
     needs: test-backend
@@ -61,3 +59,18 @@ jobs:
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops-httpd:latest
           push: ${{ github.ref == 'refs/heads/main' }}
 
+  deploy-to-server:
+    needs: build-and-push-docker-image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.5.0
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy with Ansible
+        run: |
+          ansible-playbook -i inventories/setup.yml playbook_deploy.yml
