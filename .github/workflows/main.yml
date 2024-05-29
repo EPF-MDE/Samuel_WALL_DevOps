@@ -73,5 +73,5 @@ jobs:
 
       - name: Deploy with Ansible
         run: |
-          ansible-playbook -i inventories/setup.yml C:\Users\walls\OneDrive\Documents\DevOps\my-project\ansible\playbook_deploy.yml
+          ansible-playbook -i inventories/setup.yml Samuel_WALL_DevOps\my-project\ansible\playbook_deploy.yml
   
