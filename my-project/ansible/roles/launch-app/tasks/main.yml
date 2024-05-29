@@ -1,0 +1,12 @@
+# tasks launch app
+
+- name: Run App Container
+  docker_container:
+    name: backend
+    image: samclonedocker/tp-devops-simple-api:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - name: app-network
+  vars:
+    ansible_python_interpreter: /usr/bin/python3

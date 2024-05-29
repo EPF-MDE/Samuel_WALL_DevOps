@@ -1,0 +1,14 @@
+---
+# tasks launch database
+
+- name: Run Database Container
+  docker_container:
+    name: database
+    image: samclonedocker/tp-devops-database:latest
+    networks:
+      - name: app-network
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+
+

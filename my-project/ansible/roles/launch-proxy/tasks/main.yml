@@ -1,0 +1,11 @@
+---
+# tasks run proxy
+
+- name: Run Proxy Container
+  docker_container:
+    name: httpd
+    image: samclonedocker/tp-devops-httpd:latest
+    networks:
+      - name: app-network
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
