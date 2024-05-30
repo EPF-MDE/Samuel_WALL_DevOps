@@ -72,5 +72,5 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy with Ansible
-        run: |
+        run: | 
           ansible-playbook -i inventories/setup.yml my-project/ansible/playbook_deploy.yml  
