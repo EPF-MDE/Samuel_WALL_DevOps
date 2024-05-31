@@ -120,4 +120,22 @@ Ansible uses inventories to define the hosts it manages. By default, the invento
 Create a directory for inventories:
 ```sh
 mkdir -p my-project/ansible/inventories
+```
+Create an invetory file:
+```sh
+touch my-project/ansible/inventories/setup.yml
+```
+Then the setup file should be something like this:
+
+```yaml
+all:
+  vars:
+    ansible_user: your_username
+    ansible_ssh_private_key_file: /path/to/your/private/key
+  hosts:
+    your_server:
+      ansible_host: your.server.ip.address
+
+```
+
 
