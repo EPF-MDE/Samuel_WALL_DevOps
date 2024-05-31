@@ -44,6 +44,7 @@ docker exec -it my_postgres_container psql -U usr -d db
 Replace my_postgres_container with the name of your container, usr with your PostgreSQL username, and db with your database name.
 
 
+
  Question 2
 
 # Docker Multistage Build for Java Application
@@ -66,6 +67,7 @@ The Dockerfile consists of two stages: the build stage and the run stage.
 
 ```dockerfile
 FROM maven:3.8.6-amazoncorretto-17 AS myapp-build
+```
 
 Question 3
 
@@ -85,10 +87,9 @@ This document provides the steps and commands used to tag and push Docker images
 
 Ensure you are logged in to Docker Hub. Use the following command and enter your Docker Hub username and password when prompted:
 
-```sh
+```docker
 docker login
-
-
+```
 
 TP3
 
@@ -119,3 +120,4 @@ Ansible uses inventories to define the hosts it manages. By default, the invento
 Create a directory for inventories:
 ```sh
 mkdir -p my-project/ansible/inventories
+
