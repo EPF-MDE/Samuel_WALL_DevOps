@@ -87,3 +87,23 @@ Ensure you are logged in to Docker Hub. Use the following command and enter your
 
 ```sh
 docker login
+
+
+
+TP3
+
+
+Readme.md for Ansible DevOps Project
+Introduction
+This project is designed to help you understand and utilize Ansible for automating the installation and deployment of applications. Throughout this project, you will create and manage inventories, write playbooks, use roles, and deploy a Dockerized application. This Readme will guide you through the essential steps and answer the key questions marked in the provided document.
+
+Goals
+Install and deploy your application automatically using Ansible.
+Prerequisites
+Ensure you have Ansible installed on your machine.
+Basic understanding of Ansible concepts like inventories, playbooks, roles, and tasks.
+Access to a server for deployment (e.g., a VM or a cloud instance).
+Project Structure
+inventories/ - Directory containing inventory files.
+roles/ - Directory containing roles for different parts of the application.
+playbook.yml - Main playbook to orchestrate the deployment.
